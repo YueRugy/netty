@@ -17,7 +17,7 @@ public class FutureData2 implements Observer, Data {
 
     public String getContent() {
         synchronized (mutex) {
-            while (isFinished()) {//如果没有
+            while (!isFinished()) {//如果没有
                 try {
                     mutex.wait();
                 } catch (InterruptedException e) {

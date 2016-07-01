@@ -10,7 +10,7 @@ public class RealData2 extends Observable implements Data {
 
     public void createRealData2(char c, int count) {
         System.out.println(" making RealData(" + count + ", " + c + ") BEGIN");
-        char[] buffer = new char[]{};
+        char[] buffer = new char[count];
         for (int i = 0; i < count; i++) {
             buffer[i] = c;
             try {
