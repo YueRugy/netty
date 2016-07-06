@@ -1,7 +1,5 @@
 package com.yue.future;
 
-import org.jboss.netty.channel.ChannelFuture;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
