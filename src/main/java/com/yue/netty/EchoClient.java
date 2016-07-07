@@ -1,6 +1,7 @@
 package com.yue.netty;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -33,9 +34,9 @@ public class EchoClient {
             b.group(group)
                     .channel(NioServerSocketChannel.class)
                     .remoteAddress(new InetSocketAddress(host, port))
-                    .handler(new ChannelInitializer<SocketChannel>() {
+                    .handler(new ChannelInitializer<Channel>() {
                         @Override
-                        protected void initChannel(SocketChannel ch) throws Exception {
+                        protected void initChannel(Channel ch) throws Exception {
                             ch.pipeline().addLast(handle);
                         }
                     });

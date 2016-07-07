@@ -24,6 +24,11 @@ public class EchoServer {
     }
 
     public void start() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         final EchoServerHandle serverHandle = new EchoServerHandle();//创建业务逻辑类 handle
         EventLoopGroup group = new NioEventLoopGroup();//时间循环组 英语翻译
         try {
