@@ -2,18 +2,16 @@ package com.yue.netty;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 import io.netty.util.CharsetUtil;
 
 /**
  * Created by yue on 2016/7/5 业务逻辑处理 handle
+ *
  * @see io.netty.channel.Channel
  */
 @ChannelHandler.Sharable //表明一个handle 可以被多个channel共享
-public class EchoServerHandle extends ChannelInboundHandlerAdapter {
+public class EchoServerHandle extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {//收到消息时
         ByteBuf in = (ByteBuf) msg;
