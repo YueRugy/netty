@@ -14,6 +14,10 @@ public class EchoClientHandle extends ChannelHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ctx.writeAndFlush(Unpooled.copiedBuffer("netty test test", CharsetUtil.UTF_8));//向服务端传送数据
+        /*ctx.channel().write(Unpooled.copiedBuffer("Netty in Action",
+                CharsetUtil.UTF_8));  */
+       /* ctx.pipeline().write(Unpooled.copiedBuffer("Netty in Action",
+                CharsetUtil.UTF_8));*/
     }
 
     @Override
