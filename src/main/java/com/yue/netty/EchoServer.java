@@ -14,6 +14,9 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/***
+ * @see java.nio.Buffer
+ */
 public class EchoServer {
     private final int port = 8088;
 
@@ -33,7 +36,7 @@ public class EchoServer {
         EventLoopGroup group = new NioEventLoopGroup();//时间循环组 英语翻译
         try {
             ServerBootstrap bootstrap = new ServerBootstrap()//创建辅助类
-                    .group(group)//添加group
+                    .group(group,group)//添加group
                     .channel(NioServerSocketChannel.class)//制定一个nio传输通道
                     .localAddress(new InetSocketAddress(port))//用指定的端口设置socket地址
                     .childHandler(new ChannelInitializer<SocketChannel>() {

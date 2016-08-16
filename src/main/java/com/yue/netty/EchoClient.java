@@ -1,5 +1,6 @@
 package com.yue.netty;
 
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -12,6 +13,8 @@ import java.net.InetSocketAddress;
 
 /**
  * Created by yue on 2016/7/5
+ * @see io.netty.bootstrap.AbstractBootstrap;
+ * @see Object
  */
 public class EchoClient {
     private final int port = 8088;
@@ -20,7 +23,6 @@ public class EchoClient {
     public static void main(String[] args) {
         EchoClient client = new EchoClient();
         client.start();
-
     }
 
 

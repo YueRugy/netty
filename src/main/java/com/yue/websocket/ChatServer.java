@@ -50,7 +50,6 @@ public class ChatServer {
             System.exit(1);
         }
         int port = Integer.parseInt(args[0]);
-
         final ChatServer endpoint = new ChatServer();
         ChannelFuture future = endpoint.start(new InetSocketAddress(port));
 

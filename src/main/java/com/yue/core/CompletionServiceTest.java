@@ -5,6 +5,8 @@ import java.util.concurrent.*;
 
 /**
  * Created by yue on 2016/7/20
+ *
+ * @see FutureTask
  */
 public class CompletionServiceTest {
     static class Task implements Callable<String> {
@@ -23,6 +25,7 @@ public class CompletionServiceTest {
 
     public static void main(String[] args) {
         testUseFuture();
+        testUseFuture1();
     }
 
 
@@ -50,6 +53,26 @@ public class CompletionServiceTest {
                     list.remove(future);
                     threadNum--;
                 }
+            }
+        }
+
+    }
+
+    public static void testUseFuture1() {
+        int threadNum = 5;
+        ExecutorService executor = Executors.newFixedThreadPool(threadNum);
+        ExecutorCompletionService<String> esc = new ExecutorCompletionService<String>(executor);
+        for (int i = 0; i < threadNum; i++) {
+            esc.submit(new Task(i));
+        }
+
+        for (int i = 0; i < threadNum; i++) {
+            try {
+                System.out.println(esc.take().get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
             }
         }
 
